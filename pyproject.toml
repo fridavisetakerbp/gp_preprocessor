@@ -13,5 +13,5 @@ dependencies = [
     "scipy",
 ]
 
-[tool.setuptools.packages.find]
+[tool.setuptools]
 where = ["gp_preprocessor"]
