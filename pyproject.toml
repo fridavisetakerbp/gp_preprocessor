@@ -14,4 +14,4 @@ dependencies = [
 ]
 
 [tool.setuptools]
-where = ["gp_preprocessor"]
+packages = ["gp_preprocessor"]
