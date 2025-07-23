@@ -95,15 +95,19 @@ def gp_matern_fast(X_train, y_train, X_test, ell, sigma_f, sigma_n):
 
     # Extract means and stds
     mean_smooth = x_smooth[0, :]
+    gradient_smooth = (H @ F @ x_smooth).flatten()
+    print(gradient_smooth)
     std_smooth = np.sqrt(P_smooth[0, 0, :])
 
     inv_perm = np.argsort(perm)
 
     mean_unsorted = mean_smooth[inv_perm]
     std_unsorted = std_smooth[inv_perm]
+    gradient_unsorted = gradient_smooth[inv_perm]
 
     n_train = np.size(y_train)
     mean_test = mean_unsorted[n_train:]
     std_test = std_unsorted[n_train:]
+    gradient_test = gradient_unsorted[n_train:]
 
-    return mean_test, std_test
+    return mean_test, std_test, gradient_test
