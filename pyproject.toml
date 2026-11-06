@@ -16,3 +16,7 @@ dependencies = [
 
 [tool.setuptools]
 packages = ["gp_preprocessor"]
+
+[tool.pytest.ini_options]
+pythonpath = [".", "tests"]
+testpaths = ["tests"]
